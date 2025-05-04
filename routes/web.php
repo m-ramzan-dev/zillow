@@ -20,3 +20,5 @@ Route::get('/contact', function () {
 
 Route::get('/listings', [ListingController::class, 'index']);
 Route::get('/listings/{id}', [ListingController::class, 'show']);
+Route::get('/listing/create', [ListingController::class, 'create']);
+Route::post('/listing/create', [ListingController::class, 'store']);

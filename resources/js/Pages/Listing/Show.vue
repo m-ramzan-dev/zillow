@@ -8,6 +8,6 @@ defineProps({
 });
 </script>
 <template>
-  <div>Showing Listing</div>
+  <div>Showing Single Listing</div>
   <ListItem :listing="listing" />
 </template>
