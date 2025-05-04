@@ -18,4 +18,5 @@ Route::get('/contact', function () {
     return Inertia::render('Contact');
 });
 
-Route::resource('listings', ListingController::class)->only(['index', 'show']);
+Route::get('/listings', [ListingController::class, 'index']);
+Route::get('/listings/{id}', [ListingController::class, 'show']);

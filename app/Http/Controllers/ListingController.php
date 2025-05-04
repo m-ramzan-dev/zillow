@@ -9,10 +9,12 @@ class ListingController extends Controller
 {
     public function index()
     {
-        return inertia('/Listing/Index', ['listings' => Listing::all()]);
+        $listings = Listing::all();
+        return inertia('Listing/Index', ['listings' => $listings]);
     }
-    public function show(Listing $listing)
+    public function show($id)
     {
-        return inertia('/Listing/Show', ['listing' => $listing]);
+        $listing = Listing::find($id);
+        return inertia('Listing/Show', ['listing' => $listing]);
     }
 }

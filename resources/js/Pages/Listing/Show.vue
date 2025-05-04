@@ -1,6 +1,9 @@
 <script setup>
 defineProps({
-  listing: Object,
+  listing: {
+    type: Object,
+    required: true,
+  },
 });
 </script>
 <template>
