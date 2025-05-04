@@ -1,13 +1,15 @@
 <?php
 
 use App\Http\Controllers\ListingController;
+use App\Models\Listing;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 
 Route::get('/', function () {
-    return inertia('Welcome', ['name' => 'Muhammad Ramzan']);
-    //return Inertia::render('Welcome');
+    //dd(Listing::all());
+    //return inertia('Welcome', ['name' => 'Muhammad Ramzan']);
+    return Inertia::render('Welcome');
 });
 Route::get('/about', function () {
     return inertia('About');
