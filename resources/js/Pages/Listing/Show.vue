@@ -1,4 +1,5 @@
 <script setup>
+import ListItem from "./ListItem.vue";
 defineProps({
   listing: {
     type: Object,
@@ -8,12 +9,5 @@ defineProps({
 </script>
 <template>
   <div>Showing Listing</div>
-  <div>
-    <h2>{{ listing.title }}</h2>
-    <p>{{ listing.description }}</p>
-    <p>Price: {{ listing.price }}</p>
-    <p>Location: {{ listing.location }}</p>
-    <p>Created at: {{ listing.created_at }}</p>
-    <hr />
-  </div>
+  <ListItem :listing="listing" />
 </template>

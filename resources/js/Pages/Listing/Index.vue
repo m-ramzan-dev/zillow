@@ -1,5 +1,6 @@
 <script setup>
 import { Link } from "@inertiajs/vue3";
+import ListItem from "./ListItem.vue";
 defineProps({
   listings: {
     type: Array,
@@ -11,10 +12,7 @@ defineProps({
   <div>All Showing Listings</div>
   <div v-for="listing in listings" :key="listing.id">
     <Link :href="`/listings/${listing.id}`">
-      <p>{{ listing.description }}</p>
-      <p>Price: {{ listing.price }}</p>
-      <p>Location: {{ listing.location }}</p>
-      <p>Created at: {{ listing.created_at }}</p>
+      <ListItem :listing="listing" />
     </Link>
 
     <hr />
