@@ -16,7 +16,7 @@ const form = useForm({
   price: props.listing.price,
 });
 const create = () => {
-  form.put(`/listing/update/${listing.id}`, {
+  form.put(`/listing/update/${props.listing.id}`, {
     onSuccess: () => {
       form.reset();
     },

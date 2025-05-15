@@ -47,6 +47,21 @@ class ListingController extends Controller
     }
     public function update($id, Request $request)
     {
-        return redirect('/listings');
+        $validatedData = $request->validate([
+            'beds' => 'required|integer|min:1',
+            'baths' => 'required|integer|min:1',
+            'price' => 'required|integer|min:1',
+            'area' => 'required|integer',
+            'city' => 'required|string',
+            'code' => 'required|string',
+            'street' => 'required|string',
+            'street_nr' => 'required|string',
+        ]);
+
+        $listing = Listing::findOrFail($id);
+
+        $listing->update($validatedData);
+
+        return redirect('/listings')->with('success', 'Listing updated successfully!');
     }
 }
