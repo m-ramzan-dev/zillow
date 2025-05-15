@@ -39,4 +39,14 @@ class ListingController extends Controller
 
         return redirect('/listings');
     }
+    public function edit($id)
+    {
+
+        $listing = Listing::find($id);
+        return inertia('Listing/Edit', ['listing' => $listing]);
+    }
+    public function update($id, Request $request)
+    {
+        return redirect('/listings');
+    }
 }

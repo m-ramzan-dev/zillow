@@ -1,18 +1,22 @@
 <script setup>
 import { reactive } from "vue";
 import { useForm } from "@inertiajs/vue3";
+const props = defineProps({
+  listing: Object,
+  required: true,
+});
 const form = useForm({
-  beds: 0,
-  baths: 0,
-  area: 0,
-  city: "",
-  code: "",
-  street: "",
-  street_nr: "",
-  price: 0,
+  beds: props.listing.beds,
+  baths: props.listing.baths,
+  area: props.listing.area,
+  city: props.listing.city,
+  code: props.listing.code,
+  street: props.listing.street,
+  street_nr: props.listing.street_nr,
+  price: props.listing.price,
 });
 const create = () => {
-  form.put("/listing/edit", {
+  form.put(`/listing/update/${listing.id}`, {
     onSuccess: () => {
       form.reset();
     },
@@ -23,7 +27,7 @@ const create = () => {
 };
 </script>
 <template>
-  <h2>Create Listing</h2>
+  <h2>Update Listing</h2>
   <form @submit.prevent="create">
     <div>
       <div>
