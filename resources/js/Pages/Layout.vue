@@ -14,6 +14,7 @@ export default {
       <Link href="/about">About</Link>
       <Link href="/contact">Contact</Link>
       <Link href="/listings">Welcome</Link>
+      <Link href="listing/create">Create Listing</Link>
     </header>
   </main>
   <slot></slot>

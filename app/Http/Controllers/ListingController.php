@@ -24,8 +24,19 @@ class ListingController extends Controller
     }
     public function store(Request $request)
     {
-        //return $request->all();
-        Listing::create($request->all());
+        $validated = $request->validate([
+            'beds' => 'required|integer|min:1',
+            'baths' => 'required|integer|min:1',
+            'price' => 'required|integer|min:1',
+            'area' => 'required|integer',
+            'city' => 'required|string',
+            'code' => 'required|string',
+            'street' => 'required|string',
+            'street_nr' => 'required|string',
+        ]);
+
+        Listing::create($validated);
+
         return redirect('/listings');
     }
 }
