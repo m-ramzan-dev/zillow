@@ -31,11 +31,12 @@ export default {
     </div>
   </header>
   <main class="container mx-auto p-4">
-    <div
+    <!-- <div
+      v-if="flash"
       class="border rounded-md shadow-sm dark:bg-green-900 bg-green-50 border-green-200 dark:border-green-800"
     >
-      <span class="p-4"> This is flash message </span>
-    </div>
+      <span class="p-4">{{ flash }} </span>
+    </div> -->
     <slot></slot>
   </main>
 </template>
