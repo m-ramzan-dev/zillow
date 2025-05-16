@@ -1,5 +1,8 @@
 <script setup>
-import { Link } from "@inertiajs/vue3";
+import { computed } from "vue";
+import { Link, usePage } from "@inertiajs/vue3";
+const page = usePage();
+const flash = computed(() => page.props.value.flash.success);
 </script>
 
 <script>
@@ -8,14 +11,31 @@ export default {
 };
 </script>
 <template>
-  <main>
-    <header>
-      <Link href="/">Home</Link>
-      <Link href="/about">About</Link>
-      <Link href="/contact">Contact</Link>
-      <Link href="/listings">Welcome</Link>
-      <Link href="listing/create">Create Listing</Link>
-    </header>
+  <header
+    class="border-b bg-white border-gray-200 dark:border-gray-700 dark:bg-gray-800 w-full"
+  >
+    <div class="container mx-auto">
+      <nav class="p-2 flex items-center justify-between">
+        <div class="text-lg font-medium">
+          <Link href="/listings">Listing</Link>
+        </div>
+        <div class="text-lg font-bold text-indigo-500 dark:text-indigo-400">
+          <Link href="/"> Zillow App</Link>
+        </div>
+        <div
+          class="bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition duration-300"
+        >
+          <Link href="/listing/create" class="p-2"> + New Listing</Link>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <main class="container mx-auto p-4">
+    <div
+      class="border rounded-md shadow-sm dark:bg-green-900 bg-green-50 border-green-200 dark:border-green-800"
+    >
+      <span class="p-4"> This is flash message </span>
+    </div>
+    <slot></slot>
   </main>
-  <slot></slot>
 </template>
