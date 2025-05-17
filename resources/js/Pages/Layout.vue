@@ -22,9 +22,7 @@ export default {
         <div class="text-lg font-bold text-indigo-500 dark:text-indigo-400">
           <Link href="/"> Zillow App</Link>
         </div>
-        <div
-          class="bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition duration-300"
-        >
+        <div class="button">
           <Link href="/listing/create" class="p-2"> + New Listing</Link>
         </div>
       </nav>
