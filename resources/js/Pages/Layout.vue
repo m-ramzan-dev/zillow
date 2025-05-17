@@ -17,13 +17,13 @@ export default {
     <div class="container mx-auto">
       <nav class="p-2 flex items-center justify-between">
         <div class="text-lg font-medium">
-          <Link href="/listings">Listing</Link>
+          <Link href="listings">Listing</Link>
         </div>
         <div class="text-lg font-bold text-indigo-500 dark:text-indigo-400">
           <Link href="/"> Zillow App</Link>
         </div>
         <div class="button">
-          <Link href="/listing/create" class="p-2"> + New Listing</Link>
+          <Link href="listing/create" class="p-2"> + New Listing</Link>
         </div>
       </nav>
     </div>

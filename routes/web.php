@@ -18,9 +18,9 @@ Route::get('/contact', function () {
     return Inertia::render('Contact');
 });
 
-Route::get('/listings', [ListingController::class, 'index']);
-Route::get('/listings/{id}', [ListingController::class, 'show']);
-Route::get('/listing/create', [ListingController::class, 'create']);
+Route::get('/listings', [ListingController::class, 'index'])->name('listings.index');
+Route::get('/listings/{id}', [ListingController::class, 'show'])->name('listings.show');
+Route::get('/listing/create', [ListingController::class, 'create'])->name('listings.create');
 Route::post('/listing/create', [ListingController::class, 'store']);
 Route::get('/listing/edit/{id}', [ListingController::class, 'edit']);
 Route::put('/listing/update/{id}', [ListingController::class, 'update']);
