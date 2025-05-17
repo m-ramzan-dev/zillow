@@ -35,7 +35,7 @@ const create = () => {
           v-model.number="form.beds"
           class="input"
         />
-        <div v-if="form.errors.beds">
+        <div v-if="form.errors.beds" class="input-error">
           {{ form.errors.beds }}
         </div>
       </div>
@@ -48,7 +48,9 @@ const create = () => {
           v-model.number="form.baths"
           class="input"
         />
-        <div v-if="form.errors.baths">{{ form.errors.baths }}</div>
+        <div v-if="form.errors.baths" class="input-error">
+          {{ form.errors.baths }}
+        </div>
       </div>
       <div class="col-span-2">
         <label for="area" class="label">Area</label>
@@ -59,7 +61,9 @@ const create = () => {
           v-model="form.area"
           class="input"
         />
-        <div v-if="form.errors.area">{{ form.errors.area }}</div>
+        <div v-if="form.errors.area" class="input-error">
+          {{ form.errors.area }}
+        </div>
       </div>
       <div class="col-span-4">
         <label for="city" class="label">City</label>
@@ -70,7 +74,9 @@ const create = () => {
           v-model="form.city"
           class="input"
         />
-        <div v-if="form.errors.city">{{ form.errors.city }}</div>
+        <div v-if="form.errors.city" class="input-error">
+          {{ form.errors.city }}
+        </div>
       </div>
       <div class="col-span-2">
         <label for="code" class="label">Code</label>
@@ -81,7 +87,9 @@ const create = () => {
           v-model="form.code"
           class="input"
         />
-        <div v-if="form.errors.code">{{ form.errors.code }}</div>
+        <div v-if="form.errors.code" class="input-error">
+          {{ form.errors.code }}
+        </div>
       </div>
       <div class="col-span-4">
         <label for="street" class="label">Street</label>
@@ -92,7 +100,9 @@ const create = () => {
           v-model="form.street"
           class="input"
         />
-        <div v-if="form.errors.street">{{ form.errors.street }}</div>
+        <div v-if="form.errors.street" class="input-error">
+          {{ form.errors.street }}
+        </div>
       </div>
       <div class="col-span-2">
         <label for="street_nr" class="label">Street No.</label>
@@ -103,7 +113,9 @@ const create = () => {
           v-model="form.street_nr"
           class="input"
         />
-        <div v-if="form.errors.street_nr">{{ form.errors.street_nr }}</div>
+        <div v-if="form.errors.street_nr" class="input-error">
+          {{ form.errors.street_nr }}
+        </div>
       </div>
       <div class="col-span-6">
         <label for="price" class="label">Price</label>
@@ -114,7 +126,9 @@ const create = () => {
           v-model.number="form.price"
           class="input"
         />
-        <div v-if="form.errors.price">{{ form.errors.price }}</div>
+        <div v-if="form.errors.price" class="input-error">
+          {{ form.errors.price }}
+        </div>
       </div>
     </div>
     <div class="col-span-6">
@@ -122,11 +136,3 @@ const create = () => {
     </div>
   </form>
 </template>
-<style scope>
-label {
-  margin-right: 2em;
-}
-div {
-  padding: 2px;
-}
-</style>
