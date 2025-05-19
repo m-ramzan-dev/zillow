@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
 use Inertia\Middleware;
+use Illuminate\Support\Facades\Auth;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -40,7 +41,8 @@ class HandleInertiaRequests extends Middleware
             "flash" => [
                 "success" => $request->session()->get('success'),
                 "error" => $request->session()->get('error')
-            ]
+            ],
+            "user" => Auth::user() ? Auth::user() : null
         ];
     }
 }

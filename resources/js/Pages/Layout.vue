@@ -2,7 +2,7 @@
 import { computed } from "vue";
 import { Link, usePage } from "@inertiajs/vue3";
 const page = usePage();
-const flash = computed(() => page.props.value.flash.success);
+const flash = computed(() => page.props.flash.success);
 </script>
 
 <script>
@@ -22,8 +22,10 @@ export default {
         <div class="text-lg font-bold text-indigo-500 dark:text-indigo-400">
           <Link href="/"> Zillow App</Link>
         </div>
-        <div class="button">
-          <Link href="listing/create" class="p-2"> + New Listing</Link>
+        <div>
+          <div class="button">
+            <Link href="listing/create" class="p-2"> + New Listing</Link>
+          </div>
         </div>
       </nav>
     </div>
