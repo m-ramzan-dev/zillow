@@ -3,6 +3,7 @@ import { computed } from "vue";
 import { Link, usePage } from "@inertiajs/vue3";
 const page = usePage();
 const flash = computed(() => page.props.flash.success);
+const user = computed(() => usePage().props.auth.user);
 </script>
 
 <script>
@@ -22,21 +23,26 @@ export default {
         <div class="text-lg font-bold text-indigo-500 dark:text-indigo-400">
           <Link href="/"> Zillow App</Link>
         </div>
-        <div>
+        <div class="flex items-center gap-4" v-if="user">
+          <span>{{ user.name }}</span>
           <div class="button">
             <Link href="listing/create" class="p-2"> + New Listing</Link>
           </div>
+          <div><Link href="logout" method="post">Logout</Link></div>
+        </div>
+        <div v-else>
+          <div class="button px-4 py-2"><Link href="login">Login</Link></div>
         </div>
       </nav>
     </div>
   </header>
   <main class="container mx-auto p-4">
-    <!-- <div
+    <div
       v-if="flash"
-      class="border rounded-md shadow-sm dark:bg-green-900 bg-green-50 border-green-200 dark:border-green-800"
+      class="mb-2 border rounded-sm shadow-sm dark:bg-green-900 bg-green-50 border-green-200 dark:border-green-800"
     >
-      <span class="p-4">{{ flash }} </span>
-    </div> -->
+      <span class="px-2 py-4">{{ flash }} </span>
+    </div>
     <slot></slot>
   </main>
 </template>

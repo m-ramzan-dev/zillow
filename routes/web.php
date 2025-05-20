@@ -27,3 +27,4 @@ Route::get('/listing/edit/{id}', [ListingController::class, 'edit']);
 Route::put('/listing/update/{id}', [ListingController::class, 'update']);
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/signIn', [AuthController::class, 'signIn'])->name('signIn');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
