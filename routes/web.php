@@ -28,3 +28,5 @@ Route::put('/listing/update/{id}', [ListingController::class, 'update'])->name('
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/signIn', [AuthController::class, 'signIn'])->name('signIn');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/signup', [AuthController::class, 'signUp'])->name('signup');
+Route::post('/register', [AuthController::class, 'register'])->name('register');

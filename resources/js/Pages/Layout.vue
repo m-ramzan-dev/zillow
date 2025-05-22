@@ -1,6 +1,7 @@
 <script setup>
 import { computed } from "vue";
 import { Link, usePage } from "@inertiajs/vue3";
+import { route } from "ziggy-js";
 const page = usePage();
 const flash = computed(() => page.props.flash.success);
 const user = computed(() => usePage().props.auth.user);
@@ -30,10 +31,11 @@ export default {
           </div>
           <div><Link href="logout" method="post">Logout</Link></div>
         </div>
-        <div v-else>
+        <div v-else class="flex gap-4 items-center">
           <div class="button px-4 py-2">
             <Link :href="route('login')">Login</Link>
           </div>
+          <Link :href="route('signup')">Register</Link>
         </div>
       </nav>
     </div>
