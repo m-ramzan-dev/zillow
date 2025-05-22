@@ -22,9 +22,9 @@ Route::get('/contact', function () {
 Route::get('/listings', [ListingController::class, 'index'])->name('listings.index');
 Route::get('/listings/{id}', [ListingController::class, 'show'])->name('listings.show');
 Route::get('/listing/create', [ListingController::class, 'create'])->name('listings.create');
-Route::post('/listing/create', [ListingController::class, 'store']);
-Route::get('/listing/edit/{id}', [ListingController::class, 'edit']);
-Route::put('/listing/update/{id}', [ListingController::class, 'update']);
+Route::post('/listing/create', [ListingController::class, 'store'])->name('listing.store');
+Route::get('/listing/edit/{id}', [ListingController::class, 'edit'])->name('listing.edit');
+Route::put('/listing/update/{id}', [ListingController::class, 'update'])->name('listing.update');
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/signIn', [AuthController::class, 'signIn'])->name('signIn');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

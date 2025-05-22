@@ -31,7 +31,9 @@ export default {
           <div><Link href="logout" method="post">Logout</Link></div>
         </div>
         <div v-else>
-          <div class="button px-4 py-2"><Link href="login">Login</Link></div>
+          <div class="button px-4 py-2">
+            <Link :href="route('login')">Login</Link>
+          </div>
         </div>
       </nav>
     </div>

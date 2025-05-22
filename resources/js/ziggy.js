@@ -1,7 +1,7 @@
 // resources/js/ziggy.js
 
 const Ziggy = {
-    url: 'https://ziggy.test',
+    url: 'http://127.0.0.1:8000',
     port: null,
     routes: {
         home: {
