@@ -10,7 +10,8 @@ class ListingController extends Controller
 {
     public function index()
     {
-        $listings = Listing::all();
+        $listings = Listing::paginate(10);
+        //return $listings;
         return inertia('Listing/Index', ['listings' => $listings]);
     }
     public function show($id)
