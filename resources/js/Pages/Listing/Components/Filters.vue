@@ -52,7 +52,9 @@
         />
       </div>
       <button type="submit" class="btn-normal">Filter</button>
-      <button type="reset" @click="clear">Clear</button>
+      <button type="button" @click="clearFilterForm" class="cursor-pointer">
+        Clear
+      </button>
     </div>
   </form>
 </template>
@@ -80,9 +82,13 @@ const filter = () => {
   });
 };
 
-const clear = () => {
-  filterForm.reset();
-
+const clearFilterForm = () => {
+  (filterForm.priceFrom = null),
+    (filterForm.priceTo = null),
+    (filterForm.beds = null),
+    (filterForm.baths = null),
+    (filterForm.areaFrom = null),
+    (filterForm.areaTo = null);
   filter();
 };
 </script>
