@@ -22,4 +22,13 @@
     .input-error {
         @apply text-sm text-red-500 dark:text-red-400
     }
+    .input-filter-l{
+        @apply placeholder:text-gray-400 px-1 dark:placeholder:text-gray-600 border border-gray-200 dark:border-gray-700 rounded-sm rounded-r-none text-sm font-medium text-gray-400 dark:text-gray-600 dark:bg-gray-800
+    }
+    .input-filter-r{
+        @apply placeholder:text-gray-400 px-1 dark:placeholder:text-gray-600 border border-gray-200 dark:border-gray-700 rounded-sm rounded-l-none text-sm font-medium text-gray-400 dark:text-gray-600 dark:bg-gray-800
+    }
+    .btn-normal{
+        @apply bg-gray-600 hover:bg-gray-500 text-white font-medium px-2 rounded-sm
+    }
 }
