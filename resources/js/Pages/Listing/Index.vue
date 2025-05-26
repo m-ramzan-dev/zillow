@@ -8,11 +8,14 @@ defineProps({
     type: Object,
     required: true,
   },
+  filters: {
+    type: Object,
+  },
 });
 </script>
 <template>
   <div>All Showing Listings</div>
-  <Filters />
+  <Filters :filters="filters" />
   <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2">
     <div v-for="listing in listings.data" :key="listing.id">
       <Link :href="`/listings/${listing.id}`">

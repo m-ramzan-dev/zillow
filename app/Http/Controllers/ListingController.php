@@ -8,11 +8,13 @@ use Inertia\Inertia;
 
 class ListingController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $listings = Listing::paginate(10);
+        $listings = Listing::paginate(10)->withQueryString();
+        $filters = $request->only(['priceFrom', 'priceTo', 'beds', 'baths', 'areaFrom', 'areaTo']);
+        //return $filters;
         //return $listings;
-        return inertia('Listing/Index', ['listings' => $listings]);
+        return inertia('Listing/Index', ['listings' => $listings, 'filters' => $request->only(['priceFrom', 'priceTo', 'beds', 'baths', 'areaFrom', 'areaTo'])]);
     }
     public function show($id)
     {
