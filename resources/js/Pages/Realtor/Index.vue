@@ -14,10 +14,19 @@
           <ListingAddress :listing="listing" />
         </div>
         <div>
-          <Link class="btn-outline text-xs font-medium" :href="some"
-            >Preview</Link
+          <a
+            class="btn-outline text-xs font-medium"
+            :href="route('listings.show', { id: listing.id })"
+            target="_blank"
+            >Preview</a
           >
-          <Link class="btn-outline text-xs font-medium" :href="some">Edit</Link>
+          <Link
+            class="btn-outline text-xs font-medium"
+            :href="
+              route('realtor.listing.image.create', { listing: listing.id })
+            "
+            >Edit</Link
+          >
           <Link
             class="btn-outline text-xs font-medium"
             :href="route('realtor.listing.destroy', { listing: listing.id })"

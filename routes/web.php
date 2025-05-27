@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ListingController;
+use App\Http\Controllers\ListingImageController;
 use App\Http\Controllers\RealtorListingController;
 use App\Models\Listing;
 use Illuminate\Support\Facades\Route;
@@ -37,4 +38,5 @@ Route::prefix('realtor')
     ->middleware('auth')
     ->group(function () {
         Route::resource('listing', RealtorListingController::class);
+        Route::resource('listing.image', ListingImageController::class)->only(['create', 'store']);
     });
