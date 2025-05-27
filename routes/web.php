@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ListingController;
+use App\Http\Controllers\RealtorListingController;
 use App\Models\Listing;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -30,3 +31,10 @@ Route::post('/signIn', [AuthController::class, 'signIn'])->name('signIn');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/signup', [AuthController::class, 'signUp'])->name('signup');
 Route::post('/register', [AuthController::class, 'register'])->name('register');
+
+Route::prefix('realtor')
+    ->name('realtor.')
+    ->middleware('auth')
+    ->group(function () {
+        Route::resource('listing', RealtorListingController::class);
+    });

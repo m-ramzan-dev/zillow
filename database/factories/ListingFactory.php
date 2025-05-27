@@ -17,6 +17,7 @@ class ListingFactory extends Factory
     public function definition(): array
     {
         return [
+            "user_id" => \App\Models\User::factory(),
             "beds" => $this->faker->numberBetween(1, 5),
             "baths" => $this->faker->numberBetween(1, 5),
             "area" => $this->faker->numberBetween(50, 500),
