@@ -21,6 +21,11 @@ class Listing extends Model
         'price'
     ];
 
+    protected $sortable = [
+        'price',
+        'created_at'
+    ];
+
     public function User(): BelongsTo
     {
         return $this->belongsTo(User::class);

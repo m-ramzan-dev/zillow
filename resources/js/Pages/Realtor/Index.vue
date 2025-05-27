@@ -29,6 +29,7 @@
       </div>
     </Box>
   </section>
+  <Pagination :links="props.listings.links" />
 </template>
 <script setup>
 import Box from "../Components/Box.vue";
@@ -37,6 +38,7 @@ import ListingAddress from "../Components/ListingAddress.vue";
 import ListingSpace from "../Components/ListingSpace.vue";
 import Price from "../Components/Price.vue";
 import RealtorFilters from "../Components/RealtorFilters.vue";
+import Pagination from "../Listing/Components/Pagination.vue";
 import { route } from "ziggy-js";
 const props = defineProps({
   listings: Array,
