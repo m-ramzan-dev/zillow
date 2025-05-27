@@ -8,11 +8,17 @@ use Illuminate\Support\Facades\Auth;
 
 class RealtorListingController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $listings = Auth::user()->listings;
+        $filters = [
+            'deleted' => $request->boolean('deleted')
+        ];
+        $listings = Auth::user()->listings()->when(
+            $filters['deleted'] ?? false,
+            fn($query, $value) => $query->withTrashed()
+        )->paginate(5)->withQueryString();
 
-        return inertia('Realtor/Index', ['listings' => $listings]);
+        return inertia('Realtor/Index', ['listings' => $listings, 'filters' => $filters]);
     }
 
     public function destroy(Listing $listing)
