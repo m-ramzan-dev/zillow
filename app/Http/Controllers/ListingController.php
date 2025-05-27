@@ -41,7 +41,8 @@ class ListingController extends Controller
     }
     public function show($id)
     {
-        $listing = Listing::find($id);
+        $listing = Listing::with('images')->find($id);
+
         return inertia('Listing/Show', ['listing' => $listing]);
     }
     public function create()

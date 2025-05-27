@@ -23,9 +23,18 @@ const monthlyPayment = computed(() => {
     <div class="col-span-4">
       <Box
         ><div class="w-full text-center p-4">
-          <span>No Images</span>
-        </div></Box
-      >
+          <div
+            class="grid grid-cols-2 gap-2"
+            v-if="props.listing.images.length"
+          >
+            <img
+              v-for="image in listing.images"
+              :key="image.id"
+              :src="image.src"
+            />
+          </div>
+        </div>
+      </Box>
     </div>
     <div class="col-span-2 space-y-4">
       <ListItem :listing="props.listing" />

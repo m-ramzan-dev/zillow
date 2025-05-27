@@ -12,13 +12,15 @@ class ListingImage extends Model
         'filename',
         'listing_id',
     ];
+    protected $appends = ['src'];
+
 
     public function listing()
     {
         return $this->belongsTo(Listing::class);
     }
-    public function getUrlAttribute()
+    public function getSrcAttribute()
     {
-        return asset('storage/listing_images/' . $this->filename);
+        return asset("storage/{$this->filename}");
     }
 }
