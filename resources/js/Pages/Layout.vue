@@ -25,7 +25,9 @@ export default {
           <Link href="/"> Zillow App</Link>
         </div>
         <div class="flex items-center gap-4" v-if="user">
-          <span>{{ user.name }}</span>
+          <Link :href="route('realtor.listing.index')">
+            <span>{{ user.name }}</span></Link
+          >
           <div class="button">
             <Link href="listing/create" class="p-2"> + New Listing</Link>
           </div>
