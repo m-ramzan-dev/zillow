@@ -2,6 +2,7 @@
 import ListItem from "./ListItem.vue";
 import Box from "./Components/Box.vue";
 import { ref, computed } from "vue";
+import MakeOffer from "../Components/MakeOffer.vue";
 const props = defineProps({
   listing: {
     type: Object,
@@ -38,7 +39,7 @@ const monthlyPayment = computed(() => {
     </div>
     <div class="col-span-2 space-y-4">
       <ListItem :listing="props.listing" />
-      <div>
+      <div class="flex flex-col space-y-4">
         <Box>
           <template #header>Monthly Payment</template>
           <div>
@@ -72,6 +73,7 @@ const monthlyPayment = computed(() => {
             </div>
           </div>
         </Box>
+        <MakeOffer :listing-id="listing.id" :price="listing.price" />
       </div>
     </div>
   </div>
