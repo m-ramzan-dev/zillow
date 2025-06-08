@@ -2,7 +2,10 @@
 import ListItem from "./ListItem.vue";
 import Box from "./Components/Box.vue";
 import { ref, computed } from "vue";
+import { usePage } from "@inertiajs/vue3";
 import MakeOffer from "../Components/MakeOffer.vue";
+const page = usePage();
+const user = computed(() => usePage().props.auth.user);
 const props = defineProps({
   listing: {
     type: Object,
@@ -73,7 +76,11 @@ const monthlyPayment = computed(() => {
             </div>
           </div>
         </Box>
-        <MakeOffer :listing-id="listing.id" :price="listing.price" />
+        <MakeOffer
+          v-if="user"
+          :listing-id="listing.id"
+          :price="listing.price"
+        />
       </div>
     </div>
   </div>

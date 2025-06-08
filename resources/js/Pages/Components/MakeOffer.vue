@@ -2,7 +2,7 @@
   <Box>
     <template #header>Make an Offer</template>
     <div>
-      <form>
+      <form @submit.prevent="makeOffer">
         <input type="text" v-model.number="form.amount" class="input" />
         <input
           type="range"
@@ -27,6 +27,7 @@
 import { useForm } from "@inertiajs/vue3";
 import Box from "../Listing/Components/Box.vue";
 import { computed } from "vue";
+import { route } from "ziggy-js";
 
 const props = defineProps({
   listingId: Number,
@@ -38,4 +39,10 @@ const form = useForm({
 const min = computed(() => props.price / 2);
 const max = computed(() => props.price * 2);
 const difference = computed(() => form.amount - props.price);
+const makeOffer = () => {
+  form.post(route("listing.offer.store", { listing: props.listingId }), {
+    preserveScroll: true,
+    preserveState: true,
+  });
+};
 </script>
