@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Database\Eloquent\Builder;
+
 use Illuminate\Database\Eloquent\Model;
 
 class Offer extends Model
@@ -22,5 +25,9 @@ class Offer extends Model
     public function listing()
     {
         return $this->belongsTo(Listing::class);
+    }
+    public function scopeByMe(Builder $query): Builder
+    {
+        return $query->where('user_id', Auth::user()?->id);
     }
 }

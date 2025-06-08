@@ -11,6 +11,9 @@ const props = defineProps({
     type: Object,
     required: true,
   },
+  offerMade: {
+    type: Object,
+  },
 });
 const interestRate = ref(2.5);
 const duration = ref(25);
@@ -77,7 +80,7 @@ const monthlyPayment = computed(() => {
           </div>
         </Box>
         <MakeOffer
-          v-if="user"
+          v-if="user && !props.offerMade"
           :listing-id="listing.id"
           :price="listing.price"
         />

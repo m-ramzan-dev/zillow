@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Listing;
+use App\Models\Offer;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Auth;
 
 class ListingController extends Controller
 {
@@ -42,8 +44,9 @@ class ListingController extends Controller
     public function show($id)
     {
         $listing = Listing::with('images')->find($id);
+        $offer = Auth::user() ? $listing->offers()->byMe()->first() : null;
 
-        return inertia('Listing/Show', ['listing' => $listing]);
+        return inertia('Listing/Show', ['listing' => $listing, 'offerMade' => $offer]);
     }
     public function create()
     {
