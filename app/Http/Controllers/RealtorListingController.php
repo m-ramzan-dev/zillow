@@ -16,13 +16,14 @@ class RealtorListingController extends Controller
             'deleted' => $request->boolean('deleted'),
             ...$request->only(['by', 'order'])
         ];
-        $listings = Auth::user()->listings()->when(
+        $listings = Auth::user()->listings()->withCount('offers')->when(
             $filters['deleted'] ?? false,
             fn($query, $value) => $query->withTrashed()
         )->when(
             $filters['by'] ?? false,
             fn($query, $value) => !in_array($value, $this->sortable) ? $query : $query->orderBy($value, $filters['order'] ?? 'desc')
         )->paginate(5)->withQueryString();
+
 
         return inertia('Realtor/Index', ['listings' => $listings, 'filters' => $filters]);
     }
@@ -31,5 +32,14 @@ class RealtorListingController extends Controller
     {
         $listing->delete();
         return redirect()->back()->with('success', 'Listing deleted successfully');
+    }
+    public function show(Listing $listing)
+    {
+        $listing->load('offers');
+
+        return inertia('Realtor/Show', [
+            'listing' => $listing,
+            /// 'offers' => $listing->offers()->with('user')->get()
+        ]);
     }
 }
