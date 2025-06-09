@@ -11,7 +11,13 @@
         <div class="text-gray-500">Made on {{ madeOn }}</div>
       </div>
       <div>
-        <Link class="btn-outline text-xs font-medium" as="button">Accept</Link>
+        <Link
+          class="btn-outline text-xs font-medium"
+          as="button"
+          method="put"
+          :href="route('realtor.offer.accept', { offer: props.offer.id })"
+          >Accept</Link
+        >
       </div>
     </section>
   </Box>
@@ -21,6 +27,7 @@ import { computed } from "vue";
 import Box from "./Box.vue";
 import { Link } from "@inertiajs/vue3";
 import Price from "./Price.vue";
+import { route } from "ziggy-js";
 const props = defineProps({
   offer: Object,
   listingPrice: Number,

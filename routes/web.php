@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ListingController;
 use App\Http\Controllers\ListingImageController;
 use App\Http\Controllers\ListingOfferController;
+use App\Http\Controllers\RealtorListingAcceptOfferController;
 use App\Http\Controllers\RealtorListingController;
 use App\Models\Listing;
 use Illuminate\Support\Facades\Route;
@@ -40,6 +41,9 @@ Route::prefix('realtor')
     ->group(function () {
         Route::resource('listing', RealtorListingController::class);
         Route::resource('listing.image', ListingImageController::class)->only(['create', 'store']);
+
+        Route::put('offer/{offer}/accept', [RealtorListingAcceptOfferController::class, 'acceptOffer'])
+            ->name('offer.accept');
     });
 
 Route::resource('listing.offer', ListingOfferController::class)->middleware('auth')->only(['store']);
