@@ -4,6 +4,7 @@ import Box from "./Components/Box.vue";
 import { ref, computed } from "vue";
 import { usePage } from "@inertiajs/vue3";
 import MakeOffer from "../Components/MakeOffer.vue";
+import OfferMade from "../Components/OfferMade.vue";
 const page = usePage();
 const user = computed(() => usePage().props.auth.user);
 const props = defineProps({
@@ -84,6 +85,7 @@ const monthlyPayment = computed(() => {
           :listing-id="listing.id"
           :price="listing.price"
         />
+        <OfferMade v-if="user && props.offerMade" :offer="props.offerMade" />
       </div>
     </div>
   </div>
