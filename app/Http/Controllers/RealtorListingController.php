@@ -39,7 +39,6 @@ class RealtorListingController extends Controller
 
         return inertia('Realtor/Show', [
             'listing' => $listing,
-            /// 'offers' => $listing->offers()->with('user')->get()
         ]);
     }
 }
